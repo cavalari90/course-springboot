@@ -36,15 +36,16 @@ public class OrderItem implements Serializable{
 		this.price = price;
 	}
 
-	
+	@JsonIgnore		//para resolver aquele problema de referência cíclica do postman. Aqui a chamada por order é indireta. o que conta é o get
 	public Order getOrder() {
 		return id.getOrder();
 	}
 	
-	@JsonIgnore		//para resolver aquele problema de referência cíclica do postman. Aqui a chamada por order é indireta. o que conta é o get
+	
 	public void setOrder(Order order) {
 		id.setOrder(order);
 	}
+	
 	
 	public Product getProduct() {
 		return id.getProduct();
